@@ -21,9 +21,9 @@ def jamf_auth():
 
     while True:
         response = requests.post(f"{JPSURL}/api/auth/tokens",
-                             auth=HTTPBasicAuth(session.username, pwd),
-                             headers={'Accept': 'application/json',
-                                      'Content-Type': 'application/json'})
+                                 auth=HTTPBasicAuth(session.username, pwd),
+                                 headers={'Accept': 'application/json',
+                                          'Content-Type': 'application/json'})
 
         if response.status_code == 200:
             session.password = pwd
@@ -45,11 +45,8 @@ def jamf_auth():
 
 def jamf_provisioning_profiles(session):
     response = requests.get(f"{JPSURL}/JSSResource/mobiledeviceprovisioningprofiles",
-                             auth=HTTPBasicAuth(session.username, session.password),
-                             headers={'Accept': 'application/json',
-                                      'Content-Type': 'application/json'}).json()
+                            auth=HTTPBasicAuth(session.username, session.password),
+                            headers={'Accept': 'application/json',
+                                     'Content-Type': 'application/json'}).json()
 
     return response['mobile_device_provisioning_profiles']
-
-
-
