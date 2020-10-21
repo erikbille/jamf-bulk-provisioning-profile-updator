@@ -65,8 +65,8 @@ def main():
 
     while True:
         print(
-            f"[*] {len(apps)} Mobile device applications are available in Jamf. Do you wish set the previously selected "
-            f"profile for all apps?")
+            f"[*] {len(apps)} Mobile device applications are available in Jamf. Do you wish set the previously "
+            f"selected profile for all apps?")
 
         decision = input("[?] yes or no:")
         if decision == "yes":
