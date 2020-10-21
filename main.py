@@ -1,5 +1,7 @@
 import jamf_api
 import dicttoxml
+from progressbar import ProgressBar
+pbar = ProgressBar()
 
 
 class ProvisioningProfile:
@@ -68,7 +70,7 @@ def main():
 
         decision = input("[?] yes or no:")
         if decision == "yes":
-            for i in apps:
+            for i in pbar(apps):
                 # Get full mobile decive object
                 full_app = MobileDeviceApp(jamf_api.jamf_mobiledeviceapp(usr_session, i))
                 full_app.provisioning_profile = selected_profile

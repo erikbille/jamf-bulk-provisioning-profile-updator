@@ -66,9 +66,9 @@ def jamf_mobiledeviceapp(session, id):
     response = requests.get(f"{JPSURL}/JSSResource/mobiledeviceapplications/id/{id}",
                             auth=HTTPBasicAuth(session.username, session.password),
                             headers={'Accept': 'application/json',
-                                     'Content-Type': 'application/json'}).json()
+                                     'Content-Type': 'application/json'})
 
-    return response['mobile_device_application']["general"]
+    return response.json()['mobile_device_application']["general"]
 
 
 def jamf_update_mobiledeviceapp(session, id, data):
@@ -77,4 +77,4 @@ def jamf_update_mobiledeviceapp(session, id, data):
                             auth=HTTPBasicAuth(session.username, session.password),
                             headers={'Accept': 'application/xml',
                                      'Content-Type': 'application/xml'})
-    print(response)
+    #print(response)
