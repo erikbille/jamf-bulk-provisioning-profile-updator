@@ -3,8 +3,6 @@ from requests.auth import HTTPBasicAuth
 import getpass
 from datetime import datetime, timedelta
 
-JPSURL = "https://erikbille.jamfcloud.com"
-
 
 class UserSession:
     def __init__(self, *args):
